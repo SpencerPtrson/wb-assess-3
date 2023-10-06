@@ -1,3 +1,30 @@
+{% extends 'base.html.njk' %}
+
+{% block title %}
+  Homepage
+{% endblock %}
+
+{% block content %}
+  <h1>Most Liked Fossils</h1>
+
+      <form action="/get-name">
+        <div>
+          <label for="namefield">What's your name?</label>
+          <input id="namefield" type="text" name="name" required />
+        </div>
+        <div>
+          <input type="submit" />
+        </div>
+      </form>
+
+      <h1>Random Fossil</h1>
+      <button id="get-random-fossil">Get Random Fossil</button>
+      <div id="random-fossil-image"></div>
+      <p id="random-fossil-name"></p>
+
+      <script type="module" src="../src/random-fossil.js"></script>
+{% endblock %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,23 +34,6 @@
     <title>Most Liked Fossils</title>
   </head>
   <body>
-    <h1>Most Liked Fossils</h1>
-
-    <form action="/get-name">
-      <div>
-        <label for="namefield">What's your name?</label>
-        <input id="namefield" type="text" name="name" required />
-      </div>
-      <div>
-        <input type="submit" />
-      </div>
-    </form>
-
-    <h1>Random Fossil</h1>
-    <button id="get-random-fossil">Get Random Fossil</button>
-    <div id="random-fossil-image"></div>
-    <p id="random-fossil-name"></p>
-
-    <script type="module" src="../src/random-fossil.js"></script>
+    
   </body>
 </html>
