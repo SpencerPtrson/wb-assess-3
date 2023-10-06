@@ -66,17 +66,15 @@ app.get('/', (req, res) => {
 })
 
 app.get('/get-name', (req, res) => {
-  console.log(req.query);
-  const { name } = req.query;
-  req.session.name = name;
+  req.session.name = req.query.name;
+  res.redirect('/top-fossils')
 });
 
 
 app.get('/top-fossils', (req, res) => {
-  console.log(MOST_LIKED_FOSSILS)
-  res.render('top-fossils.html.njk', {
-   MOST_LIKED_FOSSILS: MOST_LIKED_FOSSILS,
-   key1: "AAA"
+  res.render('top-fossils.html.njk', { 
+    MOST_LIKED_FOSSILS: MOST_LIKED_FOSSILS,
+    name: req.session.name
   })
 })
 
