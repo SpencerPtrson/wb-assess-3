@@ -12,5 +12,14 @@
       <h2>Liked {{ fossils[0].num_likes }} times.</h2>
       <img src="{{ fossils[0].img }}" />
     </div>
+
+    {% for key, value in MOST_LIKED_FOSSILS %}
+      <div class="fossil-div">
+        <h3>{{ value.name }}</h3>
+        <h2>Liked {{ value.num_likes }} times.</h2>
+        <img src="{{ value.img }}" />
+      </div>
+    {% endfor %}
+
   </body>
 </html>
