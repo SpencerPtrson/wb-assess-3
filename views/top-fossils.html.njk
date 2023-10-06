@@ -10,7 +10,8 @@
       {% endif %}
 
       {% if MOST_LIKED_FOSSILS %}
-        <form action="/like-fossil" method="POST"> 
+        <form action="/like-fossil" method="POST">
+          <p>Which one do you like the most?</p>
           <select name="fossilChoice" id="fossilChoice">
             {% for key, value in MOST_LIKED_FOSSILS %}
               <option>{{key}}</option>
@@ -21,16 +22,16 @@
       {% endif %}
 
       {% if MOST_LIKED_FOSSILS %}
-        {% for key, value in MOST_LIKED_FOSSILS %}
+        {% for key, dinosaur in MOST_LIKED_FOSSILS %}
           <div class="fossil-div">
-            <h3>
+            <h3 class="descriptive">
               {% if name %} 
                 {{name}}, this is a 
               {% endif %}
-              {{ value.name }}
+              {{ dinosaur.name }}
             </h3>
-            <h2>Liked {{ value.num_likes }} times.</h2>
-            <img src="{{ value.img }}" />
+            <h2 class="descriptive">Liked {{ dinosaur.num_likes }} times.</h2>
+            <img src="{{ dinosaur.img }}" alt="{{dinosaur.name}}" />
           </div>
         {% endfor %}
       {% endif %}
