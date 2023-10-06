@@ -1,1 +1,11 @@
-<!-- This has been left intentionally empty -->
+{% extends 'base.html.njk' %}
+
+{% block title %}
+  Thank You!
+{% endblock %}
+
+{% block content %}
+    {% if name %}
+        <h1>Thank you, {{name}}</h1>
+    {% endif %}
+{% endblock %}

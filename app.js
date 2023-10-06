@@ -71,7 +71,6 @@ app.get('/get-name', (req, res) => {
   res.redirect('/top-fossils')
 });
 
-
 app.get('/top-fossils', (req, res) => {
   if (!req.session.name) res.redirect('/');
   else {
@@ -81,6 +80,14 @@ app.get('/top-fossils', (req, res) => {
     })
   }
 })
+
+app.post('/like-fossil', (req,res) => {
+  console.log("Req Body:", req.body)
+  console.log("Fossil-Selection:", req.body.fossilChoice);
+  MOST_LIKED_FOSSILS[req.body.fossilChoice].num_likes += 1;
+  res.render('thank-you.html.njk', { name: req.session.name })
+})
+
 
 app.get('/random-fossil.json', (req, res) => {
   const randomFossil = lodash.sample(OTHER_FOSSILS);
